@@ -1,9 +1,22 @@
 public class Lists1Exercises {
+    private static IntList rest;
+
     /** Returns an IntList identical to L, but with
       * each element incremented by x. L is not allowed
       * to change. */
     public static IntList incrList(IntList L, int x) {
         /* Your code here. */
+        L = new IntList(L.first+x, L.rest);
+        IntList l = L;
+        IntList rest = L.rest;
+        
+        while (rest != null) {
+            l.rest = new IntList(rest.first+x, rest.rest);
+
+            l = l.rest;
+            rest = rest.rest;
+        }
+
         return L;        
     }
 
@@ -12,6 +25,14 @@ public class Lists1Exercises {
       * the 'new' keyword. */
     public static IntList dincrList(IntList L, int x) {
         /* Your code here. */
+        L.first -= x;
+        IntList rest = L.rest;
+
+        while (rest != null) {
+            rest.first -= x;
+            rest = rest.rest;
+        }
+
         return L;
     }
 
@@ -26,8 +47,8 @@ public class Lists1Exercises {
         // Test your answers by uncommenting. Or copy and paste the
         // code for incrList and dincrList into IntList.java and
         // run it in the visualizer.
-        // System.out.println(L.get(1));
-        // System.out.println(incrList(L, 3));
-        // System.out.println(dincrList(L, 3));        
+         System.out.println(L.get(1));
+         System.out.println(incrList(L, 3));
+         System.out.println(dincrList(L, 3));
     }
 }
