@@ -8,13 +8,13 @@ public class Lists1Exercises {
         /* Your code here. */
         L = new IntList(L.first+x, L.rest);
         IntList l = L;
-        IntList rest = L.rest;
+        IntList rest = l.rest;
         
         while (rest != null) {
             l.rest = new IntList(rest.first+x, rest.rest);
 
             l = l.rest;
-            rest = rest.rest;
+            rest = l.rest;
         }
 
         return L;        
