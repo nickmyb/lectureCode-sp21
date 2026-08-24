@@ -10,26 +10,27 @@ public class SLList {
         }
     }
 
-    private IntNode first;
+    private IntNode sentinel;
     private int size;
 
     public SLList() {
-        first = null;
+        sentinel = new IntNode(63, null);
         size = 0;
     }
 
     public SLList(int x) {
-        first = new IntNode(x, null);
+        sentinel = new IntNode(63, null);
+        sentinel.next = new IntNode(x, null);
         size = 1;
     }
 
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel.next);
         size += 1;
     }
 
     public void addLast(int x) {
-        IntNode p = first;
+        IntNode p = sentinel;
 
         // 空列表报错引入sentinel
         while (p.next != null) {
@@ -40,7 +41,7 @@ public class SLList {
     }
 
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     /**
