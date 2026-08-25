@@ -127,8 +127,20 @@ public class SLList<Blorp> implements List61B<Blorp> {
 	/** TODO: Add a print method that overrides List61B's inefficient print method. */
 	@Override
 	public void print() {
+		System.out.print("SLList<Blorp> Override `public void print()`");
 		for (Node p = sentinel.next; p != null; p = p.next) {
 			System.out.print(p.item + " ");
 		}
 	}
+
+	/**
+	 Dynamic Method Selection Puzzle
+	 *
+	调用函数需要遵循父类的函数签名,只有Override时才会使用子类函数
+	 *
+	A hello animal
+	D dog sniff animal
+	D u r cool dog
+	A u r cool animal
+	 */
 }
