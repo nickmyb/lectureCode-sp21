@@ -10,6 +10,7 @@ public class SLList {
         }
     }
 
+    // TODO: addLast -> sentFront + sentBack / circle sentinel
     private IntNode sentinel;
     private int size;
 
