@@ -7,5 +7,12 @@ public class DogLauncher {
 
         Dog d = (Dog) Maximizer.max(dogs);
         System.out.println(d.name);
+
+        Comparator<Dog> nc = Dog.getNameComparator();
+        if (nc.compare(d1, d3) > 0) {
+            d1.bark();
+        } else {
+            d3.bark();
+        }
     }
 }
